@@ -1,0 +1,27 @@
+word_list = ["aardvark", "baboon", "camel"]
+import random
+chosen_word=random.choice(word_list)
+display=[]
+for letters in chosen_word:
+  display+="_"
+print(display)
+end_of_game="false"
+x=len(chosen_word)
+life=x
+while end_of_game=="false":
+  guess=input("enter a letter ")
+  # x=len(chosen_word)
+  for position in range(0,x):
+    letter=chosen_word[position]
+    if letter==guess:
+      display[position]=guess
+    #   life=int(x)
+  if guess not in chosen_word:
+    life-=1
+  if life==0:
+      end_of_game="true"
+      print("you loose")
+  print(display) 
+  if "_" not in display:
+    end_of_game="true"
+    print("you win")
